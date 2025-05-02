@@ -10,7 +10,7 @@ services:
   php:
     build: 
       context: ./dockerfiles
-      target: php.dockerfile
+      dockerfile: php.dockerfile
     volumes:
       - ./src/:/var/www/html:delegated
   mysql:
@@ -18,6 +18,11 @@ services:
     env_file:
       - ./env/mysql.env
 
-  # comproser:
+  comproser:
+    build:
+      context: ./dockerfile
+      dockerfile: composer.dockerfile
+    volumes:
+      - ./src:/var/www/html
   # artisan:
   # npm:
