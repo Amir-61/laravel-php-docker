@@ -7,6 +7,9 @@ services:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
     ports:
       - 8000:80
+    depends_on:
+      - php
+      - mysql
   php:
     build: 
       context: ./dockerfiles
